@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Reddit+Mono:wght@200..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    margin: 0;
+    padding:0;
+    font-family: arial;
+}
+
+div.sun{
+    background-image: url(img/sunny.svg);
+    width: 120px;
+    top: 55px;
+    left: 220px;
+    height: 110px;
+}
+
+
+.decor{
+    position: absolute;
+    z-index: 400;
+    width: 80px;
+    height: 70px;
+    background-position: center;
+    background-size: cover;
+    /* background-color: red; */
+    background-image: url(img/cloudy.svg);
+    display: none;
+    animation: slide 1s reverse;
+}
+
+.decor.active{
+    display: block;
+    animation: fade 3s ;
+}
+
+.decor-1{
+    /* left: 500px; */
+    width: 70px;
+    right: 30px;
+    top: 10px;
+}
+
+.decor-3{
+    top: 50px;
+    left: 120px;
+}
+
+.decor-2{
+    left: 50px;
+    top: 20px;
+}
+
+
+
+.searching{
+    margin-top: 150px;
+    font-family: open sans;
+    font-size: 28px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(to left,#004ff9,#0e41ce );
+}
+
+.searching.inactive{
+    display: none;
+}
+
+main{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 500ms;
+    gap: 5px;
+    background:linear-gradient(to top, #62cff4,#2c67f2 ) ;
+}
+
+
+main.clear{
+    background:linear-gradient(to top, #62cff4,#2c67f2 ) ;
+}
+
+main.snow{
+    background: linear-gradient(to top, #e3fdff, #bdfcff, #85f7ff);
+    transition: 500ms;
+}
+
+main.cloud{
+    background: linear-gradient(to top, #607d8b, #4f6875);
+    transition: 500ms;
+}
+
+main.error{
+    background: linear-gradient(to top, #070d2b, #000312);
+    transition: 500ms;
+}
+
+input , button{
+    border:none;
+    outline:none;
+}
+
+.weather-error{
+    margin-top: 100px;
+    color: white;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    animation: slide 2s ;
+    /* animation: fade 1s; */
+    transform-origin: 10%;
+}
+
+.weather-success{
+    margin-top: 150px;
+    text-align: center;
+    display: none;
+    font-family: roboto;
+    color: snow;
+}
+
+.weather-success.active{
+    display: block;
+}
+
+.weather-success h1{
+    font-size: 50px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.weather-success p{
+    margin-top: -6px;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+
+.active{
+    display: flex;
+}
+
+.weather-error h1{
+    font-size: 100px;
+    background-image: linear-gradient(to bottom,#004ff9,#000 );
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: roboto;
+    font-weight: 800;
+}
+
+.weather-error span{
+    display: block;
+    font-weight: 800;    
+    background-image: linear-gradient(to left,#004ff9,#03174e );
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* color: red; */
+    font-size: 35px;
+    margin-top: -18px;
+    font-weight: 700;
+    font-family: roboto;
+}
+
+.weather-detail{
+    display: none;
+    gap: 15px;
+}
+
+
+.weather-detail.active{
+    display: flex;
+}
+
+.weather-detail div{
+    text-align: center;
+}
+
+.weather-detail div h1{
+    font-size: 34px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    font-family: roboto;
+}
+
+.weather-detail div:nth-child(1)  h1{
+    background: linear-gradient(45deg, #034958, #022f5c);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+.weather-detail div:nth-child(1) p{
+    background: linear-gradient(45deg, #034958, #022f5c);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+.weather-detail div:nth-child(2){
+    background: linear-gradient(to left, #b7d1d7, #b2d0d7);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.weather-detail div p{
+    margin-top: -9px;
+    font-size: 27px;
+    font-weight: 800;
+    font-family: roboto;
+}
+
+
+@keyframes fade{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+@keyframes slide{
+    from{
+        transform: translatey(-50vh);
+        opacity: 0;
+    }
+    to{
+        transform: translatey(0);
+        opacity: 1;
+    }
+}
+@keyframes slidex{
+    from{
+        transform: translatex(-50vw);
+        opacity: 0;
+    }
+    to{
+        transform: translatex(0);
+        opacity: 1;
+    }
+}
