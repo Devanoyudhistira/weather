@@ -6,47 +6,65 @@
 }
 
 div.sun{
-    background-image: url(img/sunny.svg);
-    width: 120px;
+    background-image: url(img/sun.png);
+    width: 105px;
+    filter: drop-shadow(3px 3px 10px yellow);
+    height: 105px;
     top: 55px;
-    left: 220px;
-    height: 110px;
+    left: 250px;
 }
 
 
 .decor{
     position: absolute;
+    filter: drop-shadow(0px 0px 20px rgba(255, 255, 255, 0.288));
     z-index: 400;
     width: 80px;
     height: 70px;
     background-position: center;
     background-size: cover;
     /* background-color: red; */
-    background-image: url(img/cloudy.svg);
+    background-image: url(img/clouds-svgrepo-com\ \(1\).svg);
     display: none;
-    animation: slide 1s reverse;
+    animation: cloudy 1.6s cubic-bezier(0.86, 0, 0.07, 1);
+    fill: red;
 }
 
 .decor.active{
     display: block;
-    animation: fade 3s ;
+    /* animation: fade 3s ; */
 }
 
 .decor-1{
     /* left: 500px; */
     width: 70px;
     right: 30px;
+    animation: cloudx .3s;
     top: 10px;
+}
+
+.decor-4{
+    animation: cloudtop .9s;
+    top: 20px;
+    margin-left: 50px;
 }
 
 .decor-3{
     top: 50px;
-    left: 120px;
+    left: 150px;
+    animation: cloudy .4s;
 }
 
 .decor-2{
     left: 50px;
     top: 20px;
+    animation: cloudy .7s;
+}
+
+.decor-5{
+    top: 60px;
+    left: 10px;
+    animation: cloudx .8s;
 }
 
 
@@ -54,12 +72,15 @@ div.sun{
 .searching{
     margin-top: 150px;
     font-family: open sans;
-    font-size: 28px;
+    font-size: 23px;
     letter-spacing: 1px;
     text-transform: capitalize;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     background-image: linear-gradient(to left,#004ff9,#0e41ce );
+    transform-origin: left;
+    animation: geser 1.5s 1 cubic-bezier(0.86, 0, 0.07, 1) ;
+    /* transform: scaleX(); */
 }
 
 .searching.inactive{
@@ -222,11 +243,17 @@ input , button{
     }
 }
 @keyframes slide{
-    from{
-        transform: translatey(-50vh);
+    0%{
+        transform: translatey(-100vh);
+    }
+
+    50%{
         opacity: 0;
     }
-    to{
+    70%{
+        opacity: 0;
+    }
+    100%{
         transform: translatey(0);
         opacity: 1;
     }
@@ -239,5 +266,46 @@ input , button{
     to{
         transform: translatex(0);
         opacity: 1;
+    }
+}
+
+@keyframes geser{
+    0%{
+        transform: scaleX(0);
+        opacity: 0;
+    }
+
+    55%{
+        opacity: 0;
+    }
+
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes cloudx{
+    from{
+        transform: translateX(80vw);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+@keyframes cloudy{
+    from{
+        transform: translateX(-80vw);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+@keyframes cloudtop{
+    from{
+        transform: translateY(-80vh);
+    }
+    to{
+        transform: translateY(0);
     }
 }
